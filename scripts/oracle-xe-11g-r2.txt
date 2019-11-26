@@ -1,9 +1,10 @@
-root@localhost:~/jmnote-docker-images/scripts# ./docker-oracle-xe-11g-r2.sh
+root@localhost:~/jmnote-docker-images/scripts# ./oracle-xe-11g-r2.sh
 ++ rm -rf /tmp/jmnote-docker-images
 ++ mkdir /tmp/jmnote-docker-images
 ++ cd /tmp/jmnote-docker-images
 ++ git clone --depth=1 https://github.com/wnameless/docker-oracle-xe-11g.git
-Cloning into 'docker-oracle-xe-11g'...
+Cloning into '
+-xe-11g'...
 remote: Enumerating objects: 17, done.
 remote: Counting objects: 100% (17/17), done.
 remote: Compressing objects: 100% (15/15), done.
