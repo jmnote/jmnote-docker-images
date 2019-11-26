@@ -3,15 +3,12 @@ set -ax
 TAG=$1
 PACKAGE=$2
 
-OS=alpine
-MAINTAINER=jmnote
-
-TEMPDIR=/tmp/dockerdir-$OS-$PACKAGE
-REPO=$MAINTAINER/$OS-$PACKAGE
+TEMPDIR=/tmp/dockerdir-alpine-$PACKAGE
+REPO=jmnote/alpine-$PACKAGE
 
 mkdir -p $TEMPDIR
 pushd $TEMPDIR
-echo "FROM $OS:$TAG
+echo "FROM alpine:$TAG
 RUN apk add --no-cache $PACKAGE" > Dockerfile
 docker build -t $REPO:$TAG .
 docker push $REPO:$TAG
