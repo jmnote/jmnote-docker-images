@@ -23,6 +23,11 @@ jmnote-docker-images
   <td>https://github.com/wnameless/docker-oracle-xe-11g</td>
 </tr>  
 <tr>
+  <td><a href='https://hub.docker.com/r/jmnote/python-mysql'>jmnote/python-mysql</a></td>
+  <td><a href='https://github.com/jmnote/jmnote-docker-images/blob/master/results/python-mysql.md'>python-mysql.md</a></td>
+  <td>-</td>
+</tr>
+<tr>
   <td><a href='https://hub.docker.com/r/jmnote/weblogic'>jmnote/weblogic</a></td>
   <td><a href='https://github.com/jmnote/jmnote-docker-images/blob/master/scripts/weblogic.txt'>weblogic.txt</a></td>
   <td>https://github.com/oracle/docker-images/tree/master/OracleWebLogic</td>
