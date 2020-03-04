@@ -1,0 +1,3 @@
+docker build -t jmnote/elasticsearch-oss:7.6.0-nori .
+docker push jmnote/elasticsearch-oss:7.6.0-nori
+
