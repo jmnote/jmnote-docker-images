@@ -1,3 +1,7 @@
+docker pull docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.0
+docker tag docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.0 jmnote/elasticsearch-oss:7.6.0
+docker push jmnote/elasticsearch-oss:7.6.0
+
 docker build -t jmnote/elasticsearch-oss:7.6.0-nori .
 docker push jmnote/elasticsearch-oss:7.6.0-nori
 
