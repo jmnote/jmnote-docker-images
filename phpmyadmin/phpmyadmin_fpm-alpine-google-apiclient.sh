@@ -1,6 +1,7 @@
 set -x
-mkdir /tmp/phpmyadmin-google-apiclient
-cd /tmp/phpmyadmin-google-apiclient
+rm -rf /tmp/jmnote-docker-images
+mkdir /tmp/jmnote-docker-images
+cd /tmp/jmnote-docker-images
 
 cat <<EOF > Dockerfile
 FROM composer:1.9.3 as vendor
@@ -20,4 +21,4 @@ EOF
 docker build -t jmnote/phpmyadmin:5.0.1-fpm-alpine-google-apiclient .
 docker push jmnote/phpmyadmin:5.0.1-fpm-alpine-google-apiclient
 
-rm -rf /tmp/phpmyadmin-google-apiclient
+rm -rf /tmp/jmnote-docker-images
