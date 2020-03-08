@@ -7,13 +7,11 @@ cat <<'EOF' > Dockerfile
 FROM python:3.8.2-slim-buster AS vendor
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends build-essential gcc
-RUN python -m venv /venv
-ENV PATH="/venv/bin:$PATH"
-RUN pip install --no-cache-dir slackclient
+RUN pip install --user --no-cache-dir --no-warn-script-location slackclient
 
 FROM python:3.8.2-alpine3.11
-COPY --from=vendor /venv /venv
-ENV PATH="/venv/bin:$PATH"
+COPY --from=vendor /root/.local /root/.local
+ENV PATH=/root/.local/bin:$PATH
 EOF
 
 docker build -t jmnote/python:3.8.2-alpine3.11-slackclient .
