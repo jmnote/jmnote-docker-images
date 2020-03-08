@@ -21,4 +21,3 @@ EOF
 docker build -t jmnote/phpmyadmin:5.0.1-fpm-alpine-google-apiclient .
 docker push jmnote/phpmyadmin:5.0.1-fpm-alpine-google-apiclient
 
-rm -rf /tmp/jmnote-docker-images
