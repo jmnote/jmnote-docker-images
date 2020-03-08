@@ -14,8 +14,8 @@ RUN composer require \
 google/apiclient:"^2.0"
 
 FROM phpmyadmin/phpmyadmin:5.0.1-fpm-alpine
-WORKDIR /app
-COPY --from=vendor /app/vendor/ /app/vendor/
+WORKDIR /
+COPY --from=vendor /app/vendor/ /vendor/
 EOF
 
 docker build -t jmnote/phpmyadmin:5.0.1-fpm-alpine-google-apiclient .
