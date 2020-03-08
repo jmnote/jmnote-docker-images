@@ -3,7 +3,7 @@ rm -rf /tmp/jmnote-docker-images
 mkdir /tmp/jmnote-docker-images
 cd /tmp/jmnote-docker-images
 
-cat <<EOF > Dockerfile
+cat <<'EOF' > Dockerfile
 FROM composer:1.9.3 as vendor
 RUN composer require \
 --ignore-platform-reqs \
