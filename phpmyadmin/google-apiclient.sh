@@ -3,7 +3,7 @@ mkdir /tmp/phpmyadmin-google-apiclient
 cd /tmp/phpmyadmin-google-apiclient
 
 cat <<EOF > Dockerfile
-FROM composer:1.7 as vendor
+FROM composer:1.9.3 as vendor
 RUN composer require \
 --ignore-platform-reqs \
 --no-interaction \
