@@ -23,7 +23,6 @@ FROM python:3.8.2-alpine3.11
 ADD . /srv/pwb
 COPY --from=pip /root/.local /root/.local
 ENV PATH=/root/.local/bin:$PATH
-CMD /bin/bash
 EOF
 
 docker build -t jmnote/pywikibot:$TAG . && docker push jmnote/pywikibot:$TAG
