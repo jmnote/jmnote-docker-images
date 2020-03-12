@@ -3,9 +3,9 @@ rm -rf /tmp/jmnote-docker-images
 mkdir /tmp/jmnote-docker-images
 cd /tmp/jmnote-docker-images
 
-TAG=3.0.20190722
+#TAG=3.0.20190722
 #TAG=3.0.20200111
-#TAG=3.0.20200306
+TAG=3.0.20200306
 
 curl -LO https://github.com/wikimedia/pywikibot/archive/$TAG.tar.gz
 tar xvzf $TAG.tar.gz
