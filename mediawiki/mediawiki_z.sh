@@ -15,11 +15,15 @@ RUN cd /var/www/html/extensions/ \
 && git clone --depth 1 -b $MEDIAWIKI_BRANCH https://gerrit.wikimedia.org/r/mediawiki/extensions/intersection.git \
 && git clone --depth 1 -b $MEDIAWIKI_BRANCH https://gerrit.wikimedia.org/r/mediawiki/extensions/MsUpload.git \
 && git clone --depth 1 -b $MEDIAWIKI_BRANCH https://gerrit.wikimedia.org/r/mediawiki/extensions/MultiBoilerplate.git \
+&& git clone --depth 1 -b $MEDIAWIKI_BRANCH https://gerrit.wikimedia.org/r/mediawiki/extensions/SendGrid.git \
 && git clone --depth 1 -b $MEDIAWIKI_BRANCH https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateStyles.git \
+&& git clone --depth 1 -b $MEDIAWIKI_BRANCH https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets.git \
 && git clone --depth 1 https://github.com/edwardspec/mediawiki-aws-s3.git AWS \
 && git clone --depth 1 https://github.com/jmnote/SimpleMathJax.git \
 && git clone --depth 1 https://github.com/jmnote/SimplePlantUML.git \
 && git clone --depth 1 https://github.com/jmnote/NewArticleTemplates.git \
+&& git config --global advice.detachedHead false \
+&& git clone --depth 1 -b v2.8.0 https://gitlab.com/hydrawiki/extensions/EmbedVideo.git \
 && rm -rf /var/www/html/extensions/*/.git* \
 && cd /var/www/html/extensions/AntiSpoof/ \
 && composer install --no-progress --no-suggest --profile --prefer-dist --optimize-autoloader \
@@ -27,6 +31,8 @@ RUN cd /var/www/html/extensions/ \
 && composer install --no-progress --no-suggest --profile --prefer-dist --optimize-autoloader \
 && cd /var/www/html/extensions/TemplateStyles/ \
 && composer install --no-dev --no-progress --no-suggest --profile --prefer-dist --optimize-autoloader \
+&& cd /var/www/html/extensions/Widgets/ \
+&& composer update --no-dev --no-progress --no-suggest --profile --prefer-dist --optimize-autoloader \
 && cd /var/www/html/ \
 && composer require \
 --ignore-platform-reqs \
