@@ -19,7 +19,7 @@ RUN set -ax \
   dcron \
   openssh \
   supervisor \
-  mariadb-connector-c-dev \
+  mariadb-connector-c-dev build-base \
 && curl -L https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
 && chmod +x /usr/local/bin/kubectl \
 #
