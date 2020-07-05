@@ -16,6 +16,7 @@ RUN set -ax \
   openssh \
   supervisor \
 && go get github.com/gin-gonic/gin \
+&& go get -u github.com/cosmtrek/air
 EOF
 
 docker build -t $IMAGE . && docker push $IMAGE

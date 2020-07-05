@@ -3,7 +3,7 @@ rm -rf /tmp/jmnote-docker-images
 mkdir /tmp/jmnote-docker-images
 cd /tmp/jmnote-docker-images
 
-IMAGE=jmnote/golang:1.14.4-alpine-git-curl-dcron-openssh-supervisor
+IMAGE=jmnote/golang:1.14.4-alpine-git-curl-dcron-openssh-supervisor-gin
 
 cat <<EOF > main.go
 package main
@@ -24,5 +24,6 @@ EOF
 docker run -d --name test -p8080:8080 -v`pwd`/main.go:/go/main.go $IMAGE sh -c 'cd /go; go run main.go'
 sleep 2
 curl localhost:8080/ping
+docker logs test
 docker rm -f test
 
