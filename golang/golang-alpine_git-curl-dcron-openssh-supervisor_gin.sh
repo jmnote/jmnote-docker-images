@@ -3,7 +3,7 @@ rm -rf /tmp/jmnote-docker-images
 mkdir /tmp/jmnote-docker-images
 cd /tmp/jmnote-docker-images
 
-IMAGE=jmnote/golang:1.14.4-alpine-git-curl-dcron-openssh-supervisor
+IMAGE=jmnote/golang:1.14.4-alpine-git-curl-dcron-openssh-supervisor-gin
 
 cat <<'EOF' > Dockerfile
 FROM golang:1.14.4-alpine
