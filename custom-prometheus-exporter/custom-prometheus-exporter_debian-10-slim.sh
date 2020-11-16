@@ -18,6 +18,9 @@ RUN go-wrapper download github.com/prometheus/client_golang/prometheus && \
     CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o custom-prometheus-exporter .
 
 FROM debian:10-slim
+RUN apt-get update && apt-get install -y \
+    procps
+
 WORKDIR /root
 COPY --from=build /go/src/github.com/marckhouzam/custom-prometheus-exporter/custom-prometheus-exporter .
 ENTRYPOINT ["./custom-prometheus-exporter"]
