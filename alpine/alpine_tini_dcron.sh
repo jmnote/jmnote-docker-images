@@ -11,6 +11,6 @@ RUN apk add --no-cache \
   dcron
 EOF
 
-docker build -t jmnote/$BASE-init-dcron .
-docker push jmnote/$BASE-init-dcron
+docker build -t jmnote/$BASE-tini-dcron .
+docker push jmnote/$BASE-tini-dcron
 
