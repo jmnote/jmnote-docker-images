@@ -5,6 +5,7 @@ cd /tmp/jmnote-docker-images
 
 git clone --depth=1 https://github.com/marckhouzam/custom-prometheus-exporter.git
 cd custom-prometheus-exporter/
+TAG=2020-11-alpine-tini-curl
 
 cat <<EOF > Dockerfile
 FROM golang:1.9 as build
@@ -23,7 +24,7 @@ COPY --from=build /go/src/github.com/marckhouzam/custom-prometheus-exporter/cust
 ENTRYPOINT ["./custom-prometheus-exporter"]
 EOF
 
-docker build -t jmnote/custom-prometheus-exporter:2020-11-alpine-3.12.1-tini .
-docker push jmnote/custom-prometheus-exporter:2020-11-alpine-3.12.1-tini
+docker build -t jmnote/custom-prometheus-exporter:$TAG .
+docker push jmnote/custom-prometheus-exporter:$TAG
 
 rm -rf /tmp/jmnote-docker-images
