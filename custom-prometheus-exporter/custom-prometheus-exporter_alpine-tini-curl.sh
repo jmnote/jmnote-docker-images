@@ -17,7 +17,7 @@ RUN go-wrapper download github.com/prometheus/client_golang/prometheus && \
     go-wrapper download gopkg.in/yaml.v2 && \
     go-wrapper install && \
     CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o custom-prometheus-exporter .
-FROM alpine:3.12.1
+FROM alpine
 RUN apk add --no-cache \
     tini \
     curl    
