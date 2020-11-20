@@ -7,7 +7,7 @@ cd /tmp/jmnote-docker-images
 git clone --depth=1 https://github.com/marckhouzam/custom-prometheus-exporter.git
 cd custom-prometheus-exporter/
 
-TAG=alpine-tini-curl-$(date +%Y-%m)
+TAG=$(date +%Y-%m)-alpine-tini-curl
 
 cat <<EOF > Dockerfile
 FROM golang:1.9 as build
