@@ -6,6 +6,8 @@ cd /tmp/jmnote-docker-images
 git clone --depth=1 https://github.com/marckhouzam/custom-prometheus-exporter.git
 cd custom-prometheus-exporter/
 
+TAG=2020-11-debian-procps
+
 cat <<EOF > Dockerfile
 FROM golang:1.9 as build
 
@@ -17,9 +19,10 @@ RUN go-wrapper download github.com/prometheus/client_golang/prometheus && \
     go-wrapper install && \
     CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o custom-prometheus-exporter .
 
-FROM debian:10-slim
+FROM debian:slim
 RUN apt-get update && apt-get install -y \
-    procps
+  procps \
+&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
 COPY --from=build /go/src/github.com/marckhouzam/custom-prometheus-exporter/custom-prometheus-exporter .
