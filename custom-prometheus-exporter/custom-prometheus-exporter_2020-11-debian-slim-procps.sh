@@ -29,8 +29,8 @@ COPY --from=build /go/src/github.com/marckhouzam/custom-prometheus-exporter/cust
 ENTRYPOINT ["./custom-prometheus-exporter"]
 EOF
 
-docker build -t jmnote/custom-prometheus-exporter:2020-11-debian-10-slim .
-docker push jmnote/custom-prometheus-exporter:2020-11-debian-10-slim
+docker build -t jmnote/custom-prometheus-exporter:$TAG .
+docker push jmnote/custom-prometheus-exporter:$TAG
 
 rm -rf /tmp/jmnote-docker-images
 
