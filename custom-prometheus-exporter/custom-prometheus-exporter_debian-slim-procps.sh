@@ -6,7 +6,7 @@ cd /tmp/jmnote-docker-images
 git clone --depth=1 https://github.com/marckhouzam/custom-prometheus-exporter.git
 cd custom-prometheus-exporter/
 
-TAG=debian-procps-$(date +%Y-%m)
+TAG=debian-slim-procps-$(date +%Y-%m)
 
 cat <<EOF > Dockerfile
 FROM golang:1.9 as build
