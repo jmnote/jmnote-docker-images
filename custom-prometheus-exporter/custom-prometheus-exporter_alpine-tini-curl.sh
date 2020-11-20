@@ -3,8 +3,10 @@ rm -rf /tmp/jmnote-docker-images
 mkdir /tmp/jmnote-docker-images
 cd /tmp/jmnote-docker-images
 
+
 git clone --depth=1 https://github.com/marckhouzam/custom-prometheus-exporter.git
 cd custom-prometheus-exporter/
+
 TAG=2020-11-alpine-tini-curl
 
 cat <<EOF > Dockerfile
