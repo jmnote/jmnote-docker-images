@@ -3,7 +3,7 @@ rm -rf /tmp/jmnote-docker-images
 mkdir /tmp/jmnote-docker-images
 cd /tmp/jmnote-docker-images
 
-IMAGE=jmnote/nginx:alpine-openssh-cloud-sdk-supervisor-mariadb-connector
+IMAGE=jmnote/nginx:alpine-cloud-sdk
 
 cat <<'EOF' > Dockerfile
 
@@ -26,9 +26,6 @@ RUN apk --no-cache add \
         openssh-client \
         git \
         gnupg \
-## ADDED
-        supervisor \
-        mariadb-connector-c-dev build-base \
     && curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz && \
     tar xzf google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz && \
     rm google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz && \
