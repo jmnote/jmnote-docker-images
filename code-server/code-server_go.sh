@@ -19,6 +19,7 @@ RUN set -x \
   vim \
   curl \
   tree \
+  netcat \
   multitail \
   inotify-tools \
   openssh-server \
