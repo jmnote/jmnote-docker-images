@@ -27,7 +27,9 @@ RUN set -x \
 && chmod +x /usr/local/bin/kubectl \
 && curl -LO https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz \
 && tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz \
-&& rm -f go${GOLANG_VERSION}.linux-amd64.tar.gz
+&& rm -f go${GOLANG_VERSION}.linux-amd64.tar.gz \
+&& mkdir -p $GOPATH \
+&& chown -R coder:coder $GOPATH
 
 USER coder
 WORKDIR /home/coder/go
