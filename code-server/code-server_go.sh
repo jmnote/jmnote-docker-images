@@ -9,7 +9,7 @@ cat <<'EOF' > Dockerfile
 FROM codercom/code-server
 
 ENV GOLANG_VERSION=1.16.3
-ENV GOPATH=/home/coder/go
+ENV GOPATH=/root/go
 ENV PATH=$PATH:/usr/local/go/bin
 
 USER root
@@ -30,13 +30,11 @@ RUN set -x \
 && tar -C /usr/local -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz \
 && rm -f go${GOLANG_VERSION}.linux-amd64.tar.gz \
 && mkdir -p $GOPATH \
-&& chown -R coder:coder $GOPATH
-
-USER coder
-WORKDIR /home/coder/go
-RUN set -x \
+&& cd $GOPATH \
 && code-server --install-extension golang.go \
 && go get -v golang.org/x/tools/gopls
+
+WORKDIR /root/go
 EOF
 
 docker build -t $IMAGE . && docker push $IMAGE
