@@ -30,9 +30,10 @@ RUN set -x \
 && rm -f go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 USER coder
+WORKDIR /home/coder/go
 RUN set -x \
-&& code-server --install-extension golang.go
-
+&& code-server --install-extension golang.go \
+&& go get -v golang.org/x/tools/gopls
 EOF
 
 docker build -t $IMAGE . && docker push $IMAGE
