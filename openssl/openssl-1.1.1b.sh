@@ -22,23 +22,20 @@ RUN set -x \
 && make && make install \
 && rm -rf /tmp/openssl
 
-## TEST
+## TEST & TAR
 RUN set -x \
 && cp /usr/local/lib/libssl.so.1.1    /usr/lib/x86_64-linux-gnu/libssl.so.1.1   \
 && cp /usr/local/lib/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 \
-&& openssl version | tee -a /root/version.txt \
-&& curl -V         | tee -a /root/version.txt
-
-
-## TAR
-RUN set -x \
 && mkdir -p /tmp/openssl \
 && cd       /tmp/openssl \
-&& cp /root/version.txt                          . \
+&& openssl version | tee -a version.txt \
+&& curl -V         | tee -a version.txt
 && cp /usr/local/bin/openssl                     . \
 && cp /usr/lib/x86_64-linux-gnu/libssl.so.1.1    . \
 && cp /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 . \
-&& tar cfvz openssl-1.1.1b.binary.tgz ./
+&& cd /tmp/ \
+&& tar cfvz openssl-1.1.1b.binary.tgz openssl/ \
+&& rm -rf /tmp/openssl
 
 EOF
 
