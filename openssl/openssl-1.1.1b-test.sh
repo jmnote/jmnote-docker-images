@@ -24,7 +24,7 @@ RUN set -x \
 && cp -a /tmp/openssl/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 \
 && openssl version      \
 && curl -V              \
-&& rm -rf /tmp/openssl/ \
+&& rm -rf /tmp/openssl/
 EOF
 
 docker build -t $IMAGE . && docker push $IMAGE
