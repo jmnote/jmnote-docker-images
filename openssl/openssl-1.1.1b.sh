@@ -12,7 +12,9 @@ FROM debian:10
 RUN set -x \
 && mkdir -p /tmp/openssl \
 && cd       /tmp/openssl \
-&& apt-get update && apt-get install -y curl cpanminus make gcc \
+&& apt-get update \
+&& apt-get install -y curl cpanminus make gcc \
+&& rm -rf /var/lib/apt/lists/* \
 && curl -LO https://www.openssl.org/source/openssl-1.1.1b.tar.gz \
 && tar xvzf openssl-1.1.1b.tar.gz \
 && cd openssl-1.1.1b/ \
