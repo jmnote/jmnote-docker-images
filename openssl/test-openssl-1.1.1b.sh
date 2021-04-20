@@ -9,14 +9,15 @@ cat <<'EOF' > Dockerfile
 FROM debian:10
 
 RUN set -x \
+&& openssl version \
+&& curl -V
+
+COPY --from=jmnote/openssl:1.1.1b-debian-10 /usr/local/bin/openssl /usr/local/bin/openssl
+COPY --from=jmnote/openssl:1.1.1b-debian-10 /usr/local/lib/libssl.so.1.1 /usr/lib/x86_64-linux-gnu/libssl.so.1.1
 
 RUN set -x \
-&& apt-get update && apt-get install -y curl cpanminus make gcc \
-&& curl -LO https://www.openssl.org/source/openssl-1.1.1b.tar.gz \
-&& tar xvzf openssl-1.1.1b.tar.gz \
-&& cd openssl-1.1.1b/ \
-&& ./config \
-&& make && make install
+&& openssl version \
+&& curl -V
 EOF
 
 docker build -t $IMAGE . && docker push $IMAGE
