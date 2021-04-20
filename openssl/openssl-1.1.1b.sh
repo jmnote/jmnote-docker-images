@@ -19,7 +19,8 @@ RUN set -x \
 && tar xvzf openssl-1.1.1b.tar.gz \
 && cd openssl-1.1.1b/ \
 && ./config \
-&& make && make install
+&& make && make install \
+&& rm -rf /tmp/openssl
 
 ## TEST
 RUN set -x \
