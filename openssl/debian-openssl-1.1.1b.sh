@@ -17,7 +17,9 @@ RUN set -x \
 && make && make install \
 && cp /usr/lib/x86_64-linux-gnu/libssl.so.1.1 /root/libssl.so.1.1----1.1.1d \
 && cp /usr/local/lib/libssl.so.1.1 /usr/lib/x86_64-linux-gnu/libssl.so.1.1 \
-&& ldconfig
+&& ldconfig \
+&& openssl version \
+&& curl -V
 EOF
 
 docker build -t $IMAGE . && docker push $IMAGE
