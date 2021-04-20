@@ -8,9 +8,13 @@ IMAGE=jmnote/openssl:1.1.1b-debian-10
 cat <<'EOF' > Dockerfile
 FROM debian:10
 
-RUN set -ax \
-
+RUN set -x \
+&& apt-get update && apt-get install -y curl cpanminus make gcc \
+&& curl -LO https://www.openssl.org/source/openssl-1.1.1b.tar.gz \
+&& tar xvzf openssl-1.1.1b.tar.gz \
+&& cd openssl-1.1.1b/ \
+&& ./config \
+&& make && make install
 EOF
 
 docker build -t $IMAGE . && docker push $IMAGE
-
