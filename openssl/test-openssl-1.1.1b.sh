@@ -18,7 +18,6 @@ COPY --from=jmnote/openssl:1.1.1b-debian-10 /usr/local/lib/libssl.so.1.1    /usr
 COPY --from=jmnote/openssl:1.1.1b-debian-10 /usr/local/lib/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
 
 RUN set -x \
-&& ldconfig \
 && openssl version \
 && curl -V
 EOF
