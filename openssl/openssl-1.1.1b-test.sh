@@ -19,9 +19,9 @@ COPY --from=jmnote/openssl:1.1.1b /tmp/openssl.tgz /tmp/
 RUN set -x \
 && cd /tmp/ \
 && tar xvzf openssl.tgz \
-&& cp -a /tmp/openssl/openssl          /usr/local/bin/openssl
-&& cp -a /tmp/openssl/libssl.so.1.1    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
-&& cp -a /tmp/openssl/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+&& cp -a /tmp/openssl/openssl          /usr/local/bin/openssl                     \
+&& cp -a /tmp/openssl/libssl.so.1.1    /usr/lib/x86_64-linux-gnu/libssl.so.1.1    \
+&& cp -a /tmp/openssl/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 \
 && openssl version \
 && curl -V
 EOF
