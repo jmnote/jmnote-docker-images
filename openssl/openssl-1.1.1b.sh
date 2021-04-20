@@ -38,7 +38,7 @@ RUN set -x \
 && cp /usr/local/bin/openssl                     . \
 && cp /usr/lib/x86_64-linux-gnu/libssl.so.1.1    . \
 && cp /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 . \
-&& tar cfvz openssl.tgz ./
+&& tar cfvz openssl-1.1.1b.binary.tgz ./
 
 EOF
 
