@@ -32,7 +32,9 @@ RUN set -x \
 
 ## TAR
 RUN set -x \
-&& cd /root/ \
+&& mkdir -p /tmp/openssl \
+&& cd       /tmp/openssl \
+&& cp /root/version.txt                          . \
 && cp /usr/local/bin/openssl                     . \
 && cp /usr/lib/x86_64-linux-gnu/libssl.so.1.1    . \
 && cp /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 . \
