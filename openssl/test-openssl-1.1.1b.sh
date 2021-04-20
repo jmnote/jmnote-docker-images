@@ -9,7 +9,7 @@ cat <<'EOF' > Dockerfile
 FROM debian:10
 
 RUN set -x \
-&& apt-get update && apt-get install -y openssl \
+&& apt-get update && apt-get install -y openssl curl \
 && openssl version \
 && curl -V
 
