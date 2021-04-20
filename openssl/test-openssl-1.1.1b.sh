@@ -9,8 +9,7 @@ cat <<'EOF' > Dockerfile
 FROM debian:10
 
 RUN set -x \
-&& openssl version \
-&& curl -V
+&& apt-get update && apt-get install -y openssl
 
 COPY --from=jmnote/openssl:1.1.1b-debian-10 /usr/local/bin/openssl /usr/local/bin/openssl
 COPY --from=jmnote/openssl:1.1.1b-debian-10 /usr/local/lib/libssl.so.1.1 /usr/lib/x86_64-linux-gnu/libssl.so.1.1
