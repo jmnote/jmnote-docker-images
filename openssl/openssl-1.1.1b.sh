@@ -29,7 +29,7 @@ RUN set -x \
 && mkdir -p /tmp/openssl \
 && cd       /tmp/openssl \
 && openssl version | tee -a version.txt \
-&& curl -V         | tee -a version.txt
+&& curl -V         | tee -a version.txt \
 && cp /usr/local/bin/openssl                     . \
 && cp /usr/lib/x86_64-linux-gnu/libssl.so.1.1    . \
 && cp /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 . \
