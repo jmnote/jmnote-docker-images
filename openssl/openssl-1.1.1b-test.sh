@@ -3,7 +3,7 @@ rm -rf /tmp/jmnote-docker-images
 mkdir /tmp/jmnote-docker-images
 cd /tmp/jmnote-docker-images
 
-IMAGE=jmnote/openssl:1.1.1b-zip
+IMAGE=jmnote/openssl:1.1.1b
 
 cat <<'EOF' > Dockerfile
 FROM debian:10
