@@ -10,7 +10,7 @@ FROM debian:10
 
 RUN set -x \
 && apt-get update && apt-get install -y openssl curl \
-&& && rm -rf /var/lib/apt/lists/* \
+&& rm -rf /var/lib/apt/lists/* \
 && openssl version \
 && curl -V
 
