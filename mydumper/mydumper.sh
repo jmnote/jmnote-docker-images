@@ -10,7 +10,7 @@ cat <<EOF > Dockerfile
 FROM ubuntu:focal
 RUN set -x \
 && apt-get update -y \
-&& apt-get install -y libglib2.0-0 mydumper \
+&& apt-get install -y libglib2.0-dev mydumper \
 && rm -rf /var/lib/apt/lists/*
 EOF
 
