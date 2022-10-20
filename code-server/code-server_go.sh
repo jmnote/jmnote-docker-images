@@ -16,6 +16,7 @@ ENV GOLANG_VERSION=1.18.2
 ENV PATH=$PATH:/usr/local/go/bin:/go/bin
 
 RUN set -x \
+&& apt install -y make \
 && install-extension golang.go \
 && install-extension johnsoncodehk.volar
 EOF
